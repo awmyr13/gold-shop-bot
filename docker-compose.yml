@@ -1,0 +1,9 @@
+services:
+  bot:
+    build: .
+    env_file: .env
+    environment:
+      TZ: Asia/Tehran          # "today's report" resets at local midnight
+    volumes:
+      - ./data:/app/backups    # SQLite database + logs
+    restart: unless-stopped
